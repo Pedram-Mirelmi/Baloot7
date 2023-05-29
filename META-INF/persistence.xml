@@ -6,15 +6,15 @@
   <persistence-unit name="default">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-    <class>ie.baloot6.model.Category</class>
-    <class>ie.baloot6.model.Comment</class>
-    <class>ie.baloot6.model.Commodity</class>
-    <class>ie.baloot6.model.Discount</class>
-    <class>ie.baloot6.model.Provider</class>
-    <class>ie.baloot6.model.Rating</class>
-    <class>ie.baloot6.model.ShoppingItem</class>
-    <class>ie.baloot6.model.User</class>
-    <class>ie.baloot6.model.Vote</class>
+    <class>ie.baloot7.model.Category</class>
+    <class>ie.baloot7.model.Comment</class>
+    <class>ie.baloot7.model.Commodity</class>
+    <class>ie.baloot7.model.Discount</class>
+    <class>ie.baloot7.model.Provider</class>
+    <class>ie.baloot7.model.Rating</class>
+    <class>ie.baloot7.model.ShoppingItem</class>
+    <class>ie.baloot7.model.User</class>
+    <class>ie.baloot7.model.Vote</class>
 
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

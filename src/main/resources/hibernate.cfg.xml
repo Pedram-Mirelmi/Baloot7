@@ -20,15 +20,15 @@
     <!--    Names the annotated entity class-->
     <property name="hibernate.hbm2ddl.auto">update</property>
 
-    <mapping class="ie.baloot6.model.Category"/>
-    <mapping class="ie.baloot6.model.Comment"/>
-    <mapping class="ie.baloot6.model.Commodity"/>
-    <mapping class="ie.baloot6.model.Discount"/>
-    <mapping class="ie.baloot6.model.Provider"/>
-    <mapping class="ie.baloot6.model.Rating"/>
-    <mapping class="ie.baloot6.model.ShoppingItem"/>
-    <mapping class="ie.baloot6.model.User"/>
-    <mapping class="ie.baloot6.model.Vote"/>
+    <mapping class="ie.baloot7.model.Category"/>
+    <mapping class="ie.baloot7.model.Comment"/>
+    <mapping class="ie.baloot7.model.Commodity"/>
+    <mapping class="ie.baloot7.model.Discount"/>
+    <mapping class="ie.baloot7.model.Provider"/>
+    <mapping class="ie.baloot7.model.Rating"/>
+    <mapping class="ie.baloot7.model.ShoppingItem"/>
+    <mapping class="ie.baloot7.model.User"/>
+    <mapping class="ie.baloot7.model.Vote"/>
     <!--     DB schema will be updated if needed -->
   </session-factory>
 </hibernate-configuration>

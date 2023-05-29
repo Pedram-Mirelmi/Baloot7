@@ -1,9 +1,8 @@
 package ie.ballot5.baloot5;
 
-import com.google.common.collect.Lists;
-import ie.baloot6.data.IRepository;
-import ie.baloot6.model.User;
-import ie.baloot6.service.Repository;
+import ie.baloot7.data.IRepository;
+import ie.baloot7.model.User;
+import ie.baloot7.service.Repository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.sql.Date;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

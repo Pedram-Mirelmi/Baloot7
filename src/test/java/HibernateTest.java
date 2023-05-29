@@ -1,7 +1,7 @@
-import ie.baloot6.model.Category;
-import ie.baloot6.model.Commodity;
-import ie.baloot6.model.Discount;
-import ie.baloot6.model.Provider;
+import ie.baloot7.model.Category;
+import ie.baloot7.model.Commodity;
+import ie.baloot7.model.Discount;
+import ie.baloot7.model.Provider;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.boot.MetadataSources;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
