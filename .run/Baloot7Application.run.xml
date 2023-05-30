@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Baloot7Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="baloot7" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ie.baloot7.Baloot7Application" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
