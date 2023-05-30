@@ -21,6 +21,8 @@ public interface IRepository {
 
     User getUserByUsername(@NotNull String username);
 
+    User getUserByEmail(@NotNull String email);
+
     void addProvider(long providerId, @NotNull String name, Date registryDate) throws InvalidIdException;
 
     Optional<Provider> getProvider(long id);
@@ -87,5 +89,7 @@ public interface IRepository {
     int getUserVoteForComment(String username, long commentId);
 
     void addCategory(String categoryName);
+
+    void updateUser(long userId, String newUsername, Date newBirthdate);
 }
 

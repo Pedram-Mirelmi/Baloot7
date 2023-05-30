@@ -176,6 +176,21 @@ public class Repository implements IRepository {
         return getUser(username, entityManager);
     }
 
+    @Override
+    public User getUserByEmail(@NotNull String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        var resultList = entityManager.createQuery("select u from User u " +
+                                                            "where u.email=:email")
+                .setParameter("email", email)
+                .getResultList();
+
+        if(resultList.isEmpty()) {
+            throw new InvalidIdException("Invalid email");
+        }
+        return (User) resultList.get(0);
+    }
+
 
     @Override
     public void addProvider(long providerId, @NotNull String name, Date registryDate) throws InvalidIdException {
@@ -685,6 +700,18 @@ public class Repository implements IRepository {
 
         entityManager.getTransaction().commit();
 
+    }
+
+    @Override
+    public void updateUser(long userId, String newUsername, Date newBirthdate) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        User user = entityManager.find(User.class, userId);
+        user.setUsername(newUsername);
+        user.setBirthDate(newBirthdate);
+
+        entityManager.getTransaction().commit();
     }
 
     private Optional<Category> getCategoryByName(@NotNull String categoryName, EntityManager entityManager) {

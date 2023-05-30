@@ -23,7 +23,7 @@ public class JWTUtility implements Serializable {
 
     private static final SecretKeySpec secret = new SecretKeySpec("'===========================baloot2023==========================='".getBytes(), signatureAlgorithm.getJcaName());
 
-//    private static final DefaultJwtSignatureValidator validator = new DefaultJwtSignatureValidator(signatureAlgorithm, secret);
+//    private static final DefaultJwtSignatureValidator validator = new DefaultJwtSignatureValidator(signatureAlgorithm, Secret);
 
 
 
