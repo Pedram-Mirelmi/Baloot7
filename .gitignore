@@ -32,4 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 
-*/secret.java
+### app specific ###
+**/Secret.java
