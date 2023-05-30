@@ -1,5 +1,6 @@
 package ie.baloot7.controller;
 
+import ie.baloot7.Utils.JWTUtility;
 import ie.baloot7.data.IRepository;
 import ie.baloot7.data.ISessionManager;
 import ie.baloot7.exception.InvalidIdException;
@@ -18,38 +19,33 @@ import static ie.baloot7.Utils.Constants.*;
 public class UserController {
 
     final IRepository repository;
-    final ISessionManager sessionManager;
+//    final ISessionManager sessionManager;
 
     public UserController(IRepository repository, ISessionManager sessionManager) {
         this.repository = repository;
-        this.sessionManager = sessionManager;
+//        this.sessionManager = sessionManager;
     }
 
     @GetMapping("/api/users/{username}")
     public User getUser(@RequestHeader(AUTH_TOKEN) String authToken, @PathVariable(USERNAME) String username) {
-        if(sessionManager.isValidToken(authToken)) {
-            try {
-                return repository.getUserByUsername(username);
-            }
-            catch (NoSuchElementException e) {
-                throw new InvalidIdException("Invalid username");
-            }
+        try {
+            return repository.getUserByUsername(username);
         }
-        throw new InvalidValueException("Authentication token invalid");
+        catch (NoSuchElementException e) {
+            throw new InvalidIdException("Invalid username");
+        }
     }
 
     @PostMapping("/api/addCredit")
     public Map<String, String> addCredit(@RequestHeader(AUTH_TOKEN) String authToken, @RequestBody Map<String, Long> body) throws InvalidIdException, InvalidValueException {
-        if(sessionManager.isValidToken(authToken)) {
-            try {
-                Long amount = Objects.requireNonNull(body.get(AMOUNT));
-                repository.addCredit(sessionManager.getUser(authToken).get().getUsername(), amount);
-                return Map.of(STATUS, SUCCESS);
-            }
-            catch (NullPointerException e) {
-                throw new InvalidRequestParamsException("Invalid \"amount\" in request");
-            }
+        User user = repository.getUserByUsername(JWTUtility.getUsernameFromToken(authToken));
+        try {
+            Long amount = Objects.requireNonNull(body.get(AMOUNT));
+            repository.addCredit(user.getUsername(), amount);
+            return Map.of(STATUS, SUCCESS);
         }
-        throw new InvalidValueException("Authentication token invalid");
+        catch (NullPointerException e) {
+            throw new InvalidRequestParamsException("Invalid \"amount\" in request");
+        }
     }
 }
