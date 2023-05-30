@@ -18,7 +18,7 @@
 
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Baloot6"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Baloot7"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.password" value="rootroot"/>
     </properties>

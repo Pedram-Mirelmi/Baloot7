@@ -1,0 +1,3 @@
+DROP DATABASE Baloot6;
+
+CREATE DATABASE Baloot6;

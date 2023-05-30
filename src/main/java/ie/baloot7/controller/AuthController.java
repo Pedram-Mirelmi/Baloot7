@@ -25,7 +25,10 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -44,14 +47,19 @@ public class AuthController {
     }
 
     @PostMapping("/api/github-oauth")
-    public Map<String, String> oauthWithGithub(@RequestParam("code") String code) throws IOException {
+    public Map<String, String> oauthWithGithub(@RequestParam("code") String code) throws IOException, ParseException {
 
         String githubUserToken = getUserTokenFromGithub(code);
         JsonObject userInfo = getUserInfoFromGithub(githubUserToken);
-//        var sdf = new DateTimeFormatter("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        var sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         String username = userInfo.get("login").getAsString();
         String email = userInfo.get("email").getAsString();
-        Date birthDate = Date.valueOf(LocalDate.parse(userInfo.get("created_at").getAsString()).minusYears(18));
+        Date birthDate = Date.valueOf(sdf.parse(userInfo.get("created_at")
+                .getAsString())
+                .toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()
+                .minusYears(18));
         try {
             User user = repository.getUserByEmail(email);
             repository.updateUser(user.getUserId(), username, birthDate);
@@ -111,7 +119,7 @@ public class AuthController {
     //
     private String getUserTokenFromGithub(String code) throws IOException {
         return getResource("https://github.com/login/oauth/access_token?client_id="
-                + Secret.clientId + "&client_secret=" + Secret.secret + "&code=" + code, Map.of())
+                + Secret.clientId + "&client_secret=" + Secret.secret + "&code=" + code, Map.of("Accept", "application/vnd.github+json"))
                 .get("access_token")
                 .getAsString();
     }
