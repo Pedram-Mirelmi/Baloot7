@@ -28,7 +28,7 @@ public class Commodity {
     @Column(nullable = false)
     private long inStock;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(
             joinColumns = { @JoinColumn(name = "commodityId") },
             inverseJoinColumns = { @JoinColumn(name = "categoryId") }

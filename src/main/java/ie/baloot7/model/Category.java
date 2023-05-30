@@ -17,12 +17,12 @@ public class Category {
     @Column(nullable = false)
     private String categoryName;
 
+    @ManyToMany(mappedBy = "categorySet", fetch = FetchType.LAZY)
+    private Set<Commodity> commoditySet = new HashSet<>();
+
     public void setCommoditySet(Set<Commodity> commoditySet) {
         this.commoditySet = commoditySet;
     }
-
-    @ManyToMany(mappedBy = "categorySet")
-    private Set<Commodity> commoditySet = new HashSet<>();
 
 
     public Category() {

@@ -10,13 +10,14 @@ public class Vote {
     private long voteId;
 
     @ManyToOne
-    @JoinColumn(name = "commentId")
+    @JoinColumn(name = "commentId", nullable = false)
     private Comment comment;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId", nullable = false)
     private User user;
 
+    @Column(nullable = false)
     private int  vote;
 
     public Vote() {

@@ -13,11 +13,11 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long commentId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "commodityId")
     private Commodity commodity;
 
@@ -27,7 +27,7 @@ public class Comment {
     @Column(nullable = false)
     private Date date;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "commentId")
     private Set<Vote> votes = new HashSet<>();;
 

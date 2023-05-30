@@ -9,8 +9,10 @@ public class Discount {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long discountId;
 
+    @Column(nullable = false)
     private String discountCode;
 
+    @Column(nullable = false)
     private int discountAmount;
 
     public Discount(String discountCode, int discountAmount) {
