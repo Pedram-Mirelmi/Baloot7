@@ -11,6 +11,7 @@ import ie.baloot7.model.*;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -161,7 +162,7 @@ public class Repository implements IRepository {
         entityManager.getTransaction().begin();
 
         try {
-            User user = new User(username, password, email, birthDate, address, credit);
+            User user = new User(username,  password == null ? null : DigestUtils.sha256Hex(password), email, birthDate, address, credit);
             entityManager.persist(user);
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
@@ -654,7 +655,7 @@ public class Repository implements IRepository {
 
         try {
             User user = getUser(username, entityManager);
-            if (user.getPassword().equals(password)) {
+            if (user.getPassword().equals(DigestUtils.sha256Hex(password))) {
                 return true;
             }
         } catch (Exception e) {

@@ -106,12 +106,5 @@ public class User {
     public void setCredit(long credit) {
         this.credit = credit;
     }
-//
-//    public Set<Discount> getUsedDiscounts() {
-//        return userdi;
-//    }
-//
-//    public void setUsedDiscounts(Set<Discount> usedDiscounts) {
-//        this.usedDiscounts = usedDiscounts;
-//    }
+
 }

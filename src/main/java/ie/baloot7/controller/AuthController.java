@@ -38,12 +38,9 @@ import java.util.Objects;
 public class AuthController {
 
     final IRepository repository;
-//    final ISessionManager sessionManager;
 
-    public AuthController(IRepository repository, ISessionManager sessionManager) throws NoSuchAlgorithmException {
+    public AuthController(IRepository repository) throws NoSuchAlgorithmException {
         this.repository = repository;
-//        this.sessionManager = sessionManager;
-        sessionManager.addSession("amir", "1234");
     }
 
     @PostMapping("/api/github-oauth")

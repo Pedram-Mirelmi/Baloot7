@@ -20,11 +20,9 @@ import java.util.*;
 @RestController
 public class ShoppingController {
     final IRepository repository;
-//    final ISessionManager sessionManager;
 
-    public ShoppingController(IRepository repository, ISessionManager sessionManager) {
+    public ShoppingController(IRepository repository) {
         this.repository = repository;
-//        this.sessionManager = sessionManager;
     }
 
 

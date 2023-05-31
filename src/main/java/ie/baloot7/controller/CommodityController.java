@@ -20,11 +20,9 @@ import java.util.*;
 @RestController
 public class CommodityController {
     final IRepository repository;
-//    final ISessionManager sessionManager;
 
-    public CommodityController(IRepository repository, ISessionManager sessionManager) {
+    public CommodityController(IRepository repository) {
         this.repository = repository;
-//        this.sessionManager = sessionManager;
     }
 
     @GetMapping("/api/commodities/{commodityId}")

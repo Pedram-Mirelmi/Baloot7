@@ -19,11 +19,9 @@ import static ie.baloot7.Utils.Constants.*;
 public class UserController {
 
     final IRepository repository;
-//    final ISessionManager sessionManager;
 
-    public UserController(IRepository repository, ISessionManager sessionManager) {
+    public UserController(IRepository repository) {
         this.repository = repository;
-//        this.sessionManager = sessionManager;
     }
 
     @GetMapping("/api/users/{username}")

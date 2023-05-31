@@ -22,9 +22,8 @@ public class CommentController {
 //    final ISessionManager sessionManager;
 
 
-    public CommentController(IRepository repository, ISessionManager sessionManager) {
+    public CommentController(IRepository repository) {
         this.repository = repository;
-//        this.sessionManager = sessionManager;
     }
 
     @GetMapping("/api/comments/{commentId}")

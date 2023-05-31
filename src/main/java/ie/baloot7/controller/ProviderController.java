@@ -18,11 +18,9 @@ import static ie.baloot7.Utils.Constants.*;
 @RestController
 public class ProviderController {
     final IRepository repository;
-//    final ISessionManager sessionManager;
 
-    public ProviderController(IRepository repository, ISessionManager sessionManager) {
+    public ProviderController(IRepository repository) {
         this.repository = repository;
-//        this.sessionManager = sessionManager;
     }
 
     @GetMapping("/api/providers")
