@@ -18,6 +18,7 @@ public class CORSConfiguration {
         config.addAllowedOrigin("http://balout.ir:9090");
         config.addAllowedOrigin("http://127.0.0.1:9090");
         config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("http://localhost");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);

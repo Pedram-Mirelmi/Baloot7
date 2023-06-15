@@ -2,7 +2,8 @@
   <configuration default="false" name="Baloot7Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" />
     <module name="baloot7" />
-    <target name="openjdk:17-alpine" />
+    <projectPathOnTarget name="projectPathOnTarget" value="/app" />
+    <target name="@@@LOCAL@@@" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ie.baloot7.Baloot7Application" />
     <method v="2">
       <option name="Make" enabled="true" />
