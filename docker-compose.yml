@@ -4,9 +4,18 @@ services:
     image: baloot-back
     ports:
       - 9090:9090
+    networks:
+      - baloot-network
     depends_on:
       - db
   db:
     image: baloot-db
     ports:
       - 3306:3306
+    networks:
+      - baloot-network
+
+
+networks:
+  baloot-network:
+    driver: bridge
