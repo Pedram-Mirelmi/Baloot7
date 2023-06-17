@@ -1,12 +1,9 @@
-
-# Stage 1: Spring Boot application
-FROM openjdk:17-alpine
-
+FROM maven:3.8.5-openjdk-17
+WORKDIR /baloot
+COPY pom.xml /baloot
+CMD mvn dependency:resolve
+COPY src /baloot/src
+RUN mvn clean package
+CMD mvn spring-boot:run
 EXPOSE 9090
-EXPOSE 3306
-
-COPY target/baloot7-0.0.1-SNAPSHOT.jar app.jar
-
-
-ENTRYPOINT ["java","-jar","/app.jar"]
-
+ENTRYPOINT ["java","-jar","/baloot/target/baloot7-0.0.1-SNAPSHOT.jar"]

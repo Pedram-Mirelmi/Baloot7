@@ -14,6 +14,12 @@ services:
       - 3306:3306
     networks:
       - baloot-network
+  ui:
+    image: baloot-ui
+    ports:
+      - 80:80
+    networks:
+      - baloot-network
 
 
 networks:
